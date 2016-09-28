@@ -12,6 +12,7 @@
 		75F638051D9A35F8002E5357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F638031D9A35F8002E5357 /* Main.storyboard */; };
 		75F638071D9A35F8002E5357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F638061D9A35F8002E5357 /* Assets.xcassets */; };
 		75F6380A1D9A35F8002E5357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F638081D9A35F8002E5357 /* LaunchScreen.storyboard */; };
+		75F638121D9C828E002E5357 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F638111D9C828E002E5357 /* UserDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		75F638061D9A35F8002E5357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75F638091D9A35F8002E5357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75F6380B1D9A35F8002E5357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75F638111D9C828E002E5357 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				75F637FF1D9A35F7002E5357 /* AppDelegate.swift */,
 				75F638011D9A35F7002E5357 /* ViewController.swift */,
 				75F638031D9A35F8002E5357 /* Main.storyboard */,
+				75F638111D9C828E002E5357 /* UserDetailViewController.swift */,
 				75F638061D9A35F8002E5357 /* Assets.xcassets */,
 				75F638081D9A35F8002E5357 /* LaunchScreen.storyboard */,
 				75F6380B1D9A35F8002E5357 /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				75F638021D9A35F7002E5357 /* ViewController.swift in Sources */,
 				75F638001D9A35F7002E5357 /* AppDelegate.swift in Sources */,
+				75F638121D9C828E002E5357 /* UserDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
