@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
+    @IBOutlet weak var userTableView: UITableView!
+    
+    var sampleUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,52 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // required functions for UITableViewDataSource protocol
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return sampleUserList.userCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cellNumber: Int = indexPath.row
+        
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "userCell")! as UITableViewCell
+        
+        cell.textLabel!.text = sampleUserList.userList[cellNumber].getUserName()
+        
+        // the subtitle will indicate which user is currently active
+        if sampleUserList.userList[cellNumber].getUserActivity()
+        {
+            cell.detailTextLabel!.text = "Active"
+        }
+            
+        else
+        {
+            cell.detailTextLabel!.text = ""
+        }
+        
+        return cell
+    }
+    
+    // two optional UITableViewDelegate functions
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+    {
+        print("did select row \(indexPath.row)")
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        print("will select row \(indexPath.row)")
+        
+        return indexPath
+    }
 }
 
