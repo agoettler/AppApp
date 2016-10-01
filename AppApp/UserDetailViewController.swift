@@ -9,11 +9,36 @@
 import UIKit
 
 class UserDetailViewController: UIViewController {
+    
+    var selectedUser: AppAppUser?
 
-    override func viewDidLoad() {
+    @IBOutlet weak var userNameDetail: UILabel!
+    @IBOutlet weak var calculatorValueDetail: UILabel!
+    @IBOutlet weak var highScoreDetail: UILabel!
+    @IBOutlet weak var lastActivityDetail: UILabel!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let thisUser = selectedUser
+        {
+            userNameDetail.text = thisUser.getUserName()
+            
+            calculatorValueDetail.text = String(thisUser.getLastCalculatorValue())
+            
+            highScoreDetail.text = String(thisUser.getHighestScore())
+            
+            // TODO: date successfully appears, but format is terrible
+            lastActivityDetail.text = thisUser.getLastActiveDate().description
+        }
+        
+        else
+        {
+            print("Unwrapped nil when attempting to load selectedUser")
+        }
     }
 
     override func didReceiveMemoryWarning() {

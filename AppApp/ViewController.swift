@@ -62,14 +62,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
     {
-        print("did select row \(indexPath.row)")
+        // some tutorials demonstrate issuing the segue from here; am confused
+        print("Did select row: \(indexPath.row)")
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
-        print("will select row \(indexPath.row)")
+        print("Will select row: \(indexPath.row)")
         
         return indexPath
+    }
+    
+    // override the prepare function to populate the user detail view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "UserDetailSegue"
+        {
+            if let destinationViewController: UserDetailViewController = segue.destination as? UserDetailViewController
+            {
+                let userIndex: Int = (userTableView.indexPathForSelectedRow! as NSIndexPath).row
+                
+                destinationViewController.selectedUser = sampleUserList.userList[userIndex]
+                
+                print("Preparing to display detail for user: \(destinationViewController.selectedUser!.getUserName())")
+            }
+            
+            else
+            {
+                print("Could not unwrap the destination segue")
+            }
+        }
     }
 }
 

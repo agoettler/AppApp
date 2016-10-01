@@ -46,7 +46,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0ml-5H-4hp" kind="show" id="K26-Uz-Bpc"/>
+                                            <segue destination="0ml-5H-4hp" kind="show" identifier="UserDetailSegue" id="K26-Uz-Bpc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -163,6 +163,12 @@
                             <constraint firstItem="nuu-12-Ow5" firstAttribute="top" secondItem="bdM-e6-QWT" secondAttribute="bottom" constant="8" id="v5c-JG-7OI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calculatorValueDetail" destination="bdM-e6-QWT" id="Ton-Fb-z97"/>
+                        <outlet property="highScoreDetail" destination="nuu-12-Ow5" id="2pb-0s-Q1s"/>
+                        <outlet property="lastActivityDetail" destination="Q2Y-Y7-nUJ" id="ycY-zp-WWM"/>
+                        <outlet property="userNameDetail" destination="JE3-qd-ZMQ" id="7ma-Xz-DeL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAy-lM-14R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
