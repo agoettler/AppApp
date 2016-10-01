@@ -14,12 +14,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var sampleUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -42,10 +44,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "userCell")! as UITableViewCell
         
-        cell.textLabel!.text = sampleUserList.userList[cellNumber].getUserName()
+        cell.textLabel!.text = sampleUserList.getUserAt(index: cellNumber)!.getUserName()
         
         // the subtitle will indicate which user is currently active
-        if sampleUserList.userList[cellNumber].getUserActivity()
+        if sampleUserList.getUserAt(index: cellNumber)!.getUserActivity()
         {
             cell.detailTextLabel!.text = "Active"
         }
@@ -82,7 +84,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             {
                 let userIndex: Int = (userTableView.indexPathForSelectedRow! as NSIndexPath).row
                 
-                destinationViewController.selectedUser = sampleUserList.userList[userIndex]
+                destinationViewController.currentUserList = self.sampleUserList
+                
+                destinationViewController.selectedUserIndex = userIndex
+                
+                destinationViewController.selectedUser = sampleUserList.getUserAt(index: userIndex)
                 
                 print("Preparing to display detail for user: \(destinationViewController.selectedUser!.getUserName())")
             }

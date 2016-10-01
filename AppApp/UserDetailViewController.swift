@@ -10,6 +10,8 @@ import UIKit
 
 class UserDetailViewController: UIViewController {
     
+    var currentUserList: AppAppUserList?
+    var selectedUserIndex: Int?
     var selectedUser: AppAppUser?
 
     @IBOutlet weak var userNameDetail: UILabel!
@@ -44,6 +46,17 @@ class UserDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func makeActiveUserPressed(_ sender: UIButton)
+    {
+        print("Making \(selectedUser!.getUserName()) the active user")
+        
+        // activate the user
+        self.currentUserList?.activateUserAt(index: self.selectedUserIndex!)
+        
+        // update the date in the user detail view
+        lastActivityDetail.text! = self.selectedUser!.getLastActiveDate().description
     }
     
 

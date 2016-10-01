@@ -51,15 +51,54 @@ class AppAppUserList
         return self.userList.count
     }
     
-    public func activateUserAt(index: Int)
+    public func getUserAt(index: Int) -> AppAppUser?
     {
-        // deactivate the current active user, if there is one
-        if let activeUser = currentActiveUser
+        // perform some basic bounds checking
+        if (index >= 0) && (index < self.userCount())
         {
-            activeUser.deactivateUser()
+            return self.userList[index]
         }
         
-        // set the new user to active
-        self.userList[index].activateUser()
+        else
+        {
+            return nil
+        }
+    }
+    
+    public func activateUserAt(index: Int)
+    {
+        // check if there is currently an active user
+        if let activeUser = currentActiveUser
+        {
+            // only activate a user if the requested user isn't already active
+            if self.getUserAt(index: index)!.getUserActivity() == false
+            {
+                // set the current active user to inactive
+                activeUser.deactivateUser()
+                
+                // set the new active user to active
+                self.getUserAt(index: index)!.activateUser()
+                
+                self.currentActiveUser = self.getUserAt(index: index)!
+                
+                print("Made \(self.getUserAt(index: index)!.getUserName()) the active user")
+            }
+            
+            // if we're trying to activate the current active user, don't do anything
+            else
+            {
+                print("\(self.currentActiveUser!.getUserName()) is already the active user")
+            }
+        }
+        
+        // if there is no current active user, go ahead and activate one
+        else
+        {
+            self.getUserAt(index: index)!.activateUser()
+            
+            self.currentActiveUser = self.getUserAt(index: index)!
+            
+            print("Made \(self.currentActiveUser!.getUserName()) the first active user")
+        }
     }
 }

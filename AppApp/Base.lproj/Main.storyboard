@@ -133,6 +133,9 @@
                                 <state key="normal" title="Make Active User">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="makeActiveUserPressed:" destination="0ml-5H-4hp" eventType="touchUpInside" id="mj0-EJ-2BF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last active:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Y-Y7-nUJ">
                                 <constraints>
