@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate
 {
     @IBOutlet weak var userTableView: UITableView!
+    @IBOutlet weak var newUserTextField: UITextField!
+    
+    var currentlyEditingNewUserTextField: Bool = false
     
     var sampleUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
 
@@ -109,5 +112,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        print("newUserTextField: textFieldShouldReturn")
+        
+        textField.resignFirstResponder()
+        
+        currentlyEditingNewUserTextField = false
+        
+        textField.text = "Add new user…"
+        
+        return false
+    }
+    
+    @IBAction func newUserTextFieldEditingDidBegin(_ sender: UITextField)
+    {
+        print("newUserTextField: editingDidBegin")
+        
+        if !currentlyEditingNewUserTextField
+        {
+            sender.text = ""
+            
+            currentlyEditingNewUserTextField = true
+        }
+    }
+    
+    @IBAction func newUserTextFieldEditingChanged(_ sender: UITextField)
+    {
+        print("newUserTextField: editingChanged")
+    }
+    
+    @IBAction func newUserTextFieldEditingDidEnd(_ sender: UITextField)
+    {
+        print("newUserTextField: editingDidEnd")
+    }
+    
 }
 

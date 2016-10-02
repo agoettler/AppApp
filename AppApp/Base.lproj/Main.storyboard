@@ -55,32 +55,34 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="8Um-GI-Bjd"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBl-bo-Slz">
-                                <color key="backgroundColor" red="0.12754884362220764" green="0.46265947818756104" blue="0.78231418132781982" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="LWA-9I-Yea"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="New User…">
-                                    <color key="titleColor" red="0.98943418264389038" green="0.95794391632080078" blue="0.86405980587005615" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add new user…" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sdg-n1-qOB">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="newUserTextFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="iIs-nZ-DbG"/>
+                                    <action selector="newUserTextFieldEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Wjb-OQ-9EA"/>
+                                    <action selector="newUserTextFieldEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="jpe-xH-XZk"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="57A-IV-eeq"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="suK-Qo-fLs" secondAttribute="leading" id="1gS-rP-vF1"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="aBl-bo-Slz" secondAttribute="leading" id="Aid-ve-aJ3"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aBl-bo-Slz" secondAttribute="bottom" constant="20" id="C1k-Fw-6z6"/>
-                            <constraint firstItem="suK-Qo-fLs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JKr-nC-auS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aBl-bo-Slz" secondAttribute="trailing" id="Jo6-4O-JzQ"/>
-                            <constraint firstItem="aBl-bo-Slz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fPz-wt-GCI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="suK-Qo-fLs" secondAttribute="trailing" id="gha-dx-bGj"/>
-                            <constraint firstItem="aBl-bo-Slz" firstAttribute="top" secondItem="suK-Qo-fLs" secondAttribute="bottom" constant="8" id="luL-3O-nZC"/>
-                            <constraint firstItem="suK-Qo-fLs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rBu-s2-rxN"/>
+                            <constraint firstItem="suK-Qo-fLs" firstAttribute="top" secondItem="Sdg-n1-qOB" secondAttribute="bottom" constant="8" id="AME-lr-lVX"/>
+                            <constraint firstItem="Sdg-n1-qOB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FDi-pR-AT6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Sdg-n1-qOB" secondAttribute="leading" id="UqP-Pe-WIR"/>
+                            <constraint firstItem="suK-Qo-fLs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vih-B3-qME"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="suK-Qo-fLs" secondAttribute="leading" id="Xsq-b9-A7w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="suK-Qo-fLs" secondAttribute="trailing" id="fp3-LB-naO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sdg-n1-qOB" secondAttribute="trailing" id="nbN-3n-ASW"/>
+                            <constraint firstItem="Sdg-n1-qOB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rX8-2d-UbN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="suK-Qo-fLs" secondAttribute="bottom" constant="20" id="xoT-TG-1wT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lfe-Zs-7UL"/>
                     <connections>
+                        <outlet property="newUserTextField" destination="Sdg-n1-qOB" id="H6Z-Ct-g58"/>
                         <outlet property="userTableView" destination="suK-Qo-fLs" id="ZoN-UL-2e5"/>
                     </connections>
                 </viewController>
