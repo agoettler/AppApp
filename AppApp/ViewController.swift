@@ -18,12 +18,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("View did load")
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        self.userTableView.reloadData()
+        
+        print("View did appear")
     }
 
     // required functions for UITableViewDataSource protocol
@@ -54,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         else
         {
-            cell.detailTextLabel!.text = ""
+            cell.detailTextLabel!.text = " "
         }
         
         return cell
