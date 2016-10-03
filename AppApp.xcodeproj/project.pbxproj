@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7578E9251DA1AE0400760A0F /* TappingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578E9241DA1AE0400760A0F /* TappingGameViewController.swift */; };
 		75F638001D9A35F7002E5357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F637FF1D9A35F7002E5357 /* AppDelegate.swift */; };
 		75F638021D9A35F7002E5357 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F638011D9A35F7002E5357 /* ViewController.swift */; };
 		75F638051D9A35F8002E5357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F638031D9A35F8002E5357 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7578E9241DA1AE0400760A0F /* TappingGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappingGameViewController.swift; sourceTree = "<group>"; };
 		75F637FC1D9A35F7002E5357 /* AppApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F637FF1D9A35F7002E5357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F638011D9A35F7002E5357 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				75F637FF1D9A35F7002E5357 /* AppDelegate.swift */,
 				75F638011D9A35F7002E5357 /* ViewController.swift */,
 				75F638111D9C828E002E5357 /* UserDetailViewController.swift */,
+				7578E9241DA1AE0400760A0F /* TappingGameViewController.swift */,
 				75F638031D9A35F8002E5357 /* Main.storyboard */,
 				75F638061D9A35F8002E5357 /* Assets.xcassets */,
 				75F638081D9A35F8002E5357 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				75F638181D9CA752002E5357 /* AppAppUserList.swift in Sources */,
 				75F638021D9A35F7002E5357 /* ViewController.swift in Sources */,
 				75F638001D9A35F7002E5357 /* AppDelegate.swift in Sources */,
+				7578E9251DA1AE0400760A0F /* TappingGameViewController.swift in Sources */,
 				75F638121D9C828E002E5357 /* UserDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +316,7 @@
 				75F638101D9A35F8002E5357 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

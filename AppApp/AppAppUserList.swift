@@ -38,17 +38,24 @@ class AppAppUserList
     
     public func addNewUser(userName: String)
     {
-        self.userList.append(AppAppUser(name: userName))
+        self.addNewUser(user: AppAppUser(name: userName))
     }
     
     public func addNewUser(user: AppAppUser)
     {
         self.userList.append(user)
+        
+        print("Added user: \(self.userList.last!.getUserName())")
     }
     
     public func userCount() -> Int
     {
         return self.userList.count
+    }
+    
+    public func getCurrentActiveUser() -> AppAppUser?
+    {
+        return self.currentActiveUser
     }
     
     public func getUserAt(index: Int) -> AppAppUser?

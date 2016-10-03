@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qbY-BB-gMn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zF9-RM-j4j">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -55,10 +55,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="8Um-GI-Bjd"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add new user…" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sdg-n1-qOB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add new user…" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sdg-n1-qOB">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="newUserTextFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="iIs-nZ-DbG"/>
                                     <action selector="newUserTextFieldEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Wjb-OQ-9EA"/>
@@ -89,6 +89,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="134.48275862068968"/>
+        </scene>
+        <!--Tapping Game View Controller-->
+        <scene sceneID="Nyz-Vd-b6a">
+            <objects>
+                <viewController id="zF9-RM-j4j" customClass="TappingGameViewController" customModule="AppApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bzy-eT-qvg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xeq-M9-n06"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0dJ-uH-qua">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taps: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTN-8h-YiA">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIP-lx-DAY">
+                                <color key="backgroundColor" red="0.12754884359999999" green="0.46265947819999997" blue="0.78231418129999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="lC6-cm-vRj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="zF9-RM-j4j" eventType="touchUpInside" id="0s8-BF-6di"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoM-Xp-u55">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="hgo-xd-EI8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BIP-lx-DAY" secondAttribute="trailing" id="4ew-pU-PKW"/>
+                            <constraint firstItem="jTN-8h-YiA" firstAttribute="top" secondItem="BoM-Xp-u55" secondAttribute="bottom" constant="30" id="ASG-8B-3S3"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="BIP-lx-DAY" secondAttribute="leading" id="GQQ-cy-wch"/>
+                            <constraint firstItem="jTN-8h-YiA" firstAttribute="centerX" secondItem="0dJ-uH-qua" secondAttribute="centerX" id="Z6k-Lh-YFu"/>
+                            <constraint firstItem="BoM-Xp-u55" firstAttribute="centerX" secondItem="0dJ-uH-qua" secondAttribute="centerX" id="ane-kA-OYv"/>
+                            <constraint firstItem="BIP-lx-DAY" firstAttribute="centerX" secondItem="0dJ-uH-qua" secondAttribute="centerX" id="fts-K9-iG7"/>
+                            <constraint firstItem="BIP-lx-DAY" firstAttribute="top" secondItem="jTN-8h-YiA" secondAttribute="bottom" constant="30" id="hcJ-s0-IzV"/>
+                            <constraint firstItem="jTN-8h-YiA" firstAttribute="centerY" secondItem="0dJ-uH-qua" secondAttribute="centerY" id="z4i-eS-GpR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tappingGameCounterLabel" destination="BoM-Xp-u55" id="ZCR-7Z-2wE"/>
+                        <outlet property="timerStartButton" destination="BIP-lx-DAY" id="jef-37-jbb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="94m-4f-HXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="856.82158920539734"/>
         </scene>
         <!--User Detail View Controller-->
         <scene sceneID="rEy-eh-3f8">

@@ -115,12 +115,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        print("newUserTextField: textFieldShouldReturn")
+        print("newUserTextField: textFieldShouldReturn with text: \(textField.text)")
         
+        // create a new user with the entered text as the username
+        let newUserName = textField.text!
+        
+        self.sampleUserList.addNewUser(userName: newUserName)
+        
+        // force the table to reload and display the new user
+        self.userTableView.reloadData()
+        
+        // resign the first responder
         textField.resignFirstResponder()
         
         currentlyEditingNewUserTextField = false
         
+        // reset the default text
         textField.text = "Add new user…"
         
         return false
@@ -130,6 +140,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         print("newUserTextField: editingDidBegin")
         
+        // clear the default text if the user has selected the text field
+        // this allows any text entered by the user to persist if they change views while entering text
         if !currentlyEditingNewUserTextField
         {
             sender.text = ""
@@ -140,13 +152,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func newUserTextFieldEditingChanged(_ sender: UITextField)
     {
-        print("newUserTextField: editingChanged")
+        //print("newUserTextField: editingChanged")
     }
     
     @IBAction func newUserTextFieldEditingDidEnd(_ sender: UITextField)
     {
-        print("newUserTextField: editingDidEnd")
+        print("newUserTextField: editingDidEnd with text: \(sender.text)")
     }
-    
 }
 
