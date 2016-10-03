@@ -34,6 +34,14 @@ class TappingGameViewController: UIViewController
 
     var currentUserList: AppAppUserList?
     
+    
+//    let defaults = UserDefaults.standard
+//    
+//    let defaultsUserListKey = "storedUserList"
+    
+    //defaults.set(currentUserList, forKey: defaultsUserListKey)
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -157,6 +165,9 @@ class TappingGameViewController: UIViewController
             if let currentActiveUser = thisUserList.getCurrentActiveUser()
             {
                 currentActiveUser.setHighestScore(score: numberOfTaps)
+                
+                // store updates to userDefaults
+//                defaults.set(currentUserList, forKey: defaultsUserListKey)
             }
                 
             else

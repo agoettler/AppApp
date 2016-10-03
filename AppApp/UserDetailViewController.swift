@@ -11,13 +11,25 @@ import UIKit
 class UserDetailViewController: UIViewController {
     
     var currentUserList: AppAppUserList?
+    
     var selectedUserIndex: Int?
+    
     var selectedUser: AppAppUser?
 
     @IBOutlet weak var userNameDetail: UILabel!
+    
     @IBOutlet weak var calculatorValueDetail: UILabel!
+    
     @IBOutlet weak var highScoreDetail: UILabel!
+    
     @IBOutlet weak var lastActivityDetail: UILabel!
+    
+//    // FIXME: this is a little sloppy, should pass a reference to the user defaults from the master view
+//    let defaults = UserDefaults.standard
+//    
+//    let defaultsUserListKey = "storedUserList"
+//    
+//    //defaults.set(currentUserList, forKey: defaultsUserListKey)
     
     override func viewDidLoad()
     {
@@ -68,6 +80,9 @@ class UserDetailViewController: UIViewController {
         
         // update the date in the user detail view
         updateLastActivityDetail(user: selectedUser!)
+        
+        // store update to user data
+//        defaults.set(currentUserList, forKey: defaultsUserListKey)
     }
     
     public func updateAllUserDetails(user: AppAppUser)

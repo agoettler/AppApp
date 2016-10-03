@@ -30,6 +30,14 @@ class CalculatorViewController: UIViewController {
     
     let entriesDisplayReturnedNil = "entriesDisplay returned nil"
     
+    
+//    let defaults = UserDefaults.standard
+//    
+//    let defaultsUserListKey = "storedUserList"
+    
+    //defaults.set(currentUserList, forKey: defaultsUserListKey)
+    
+    
     @IBAction func digitPressed(_ sender: AnyObject) {
         
         // let's try this optional binding thing
@@ -280,6 +288,9 @@ class CalculatorViewController: UIViewController {
             if let currentActiveUser = thisUserList.getCurrentActiveUser()
             {
                 currentActiveUser.setLastCalculatorValue(value: Float(calculatorDisplay!.text!)!)
+                
+                // store update to userDefaults
+//                defaults.set(currentUserList, forKey: defaultsUserListKey)
             }
                 
                 // if there is no current active user, calculator will still work but no value will be saved

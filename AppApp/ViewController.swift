@@ -16,6 +16,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var currentlyEditingNewUserTextField: Bool = false
     
     var currentUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
+    
+//    let defaults = UserDefaults.standard
+//    
+//    let defaultsUserListKey = "storedUserList"
+    
+    //defaults.set(currentUserList, forKey: defaultsUserListKey)
 
     override func viewDidLoad()
     {
@@ -23,6 +29,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view, typically from a nib.
         print("ViewController viewDidLoad")
+        
+        // retrieve any stored user list in user defaults
+        // use the following code to store to the list
+        //defaults.set(currentUserList, forKey: defaultsUserListKey)
+//        if let storedUserList = defaults.object(forKey: defaultsUserListKey)
+//        {
+//            // I think this should cast the default's "any" type as the type I need
+//            currentUserList = storedUserList as! AppAppUserList
+//        }
         
         // Pass the other view controllers a reference to the user list - essentially the "model" in this app
         // FIXME: this code will break if the order of the tab items is changed
@@ -159,6 +174,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // reset the default text
         textField.text = "Add new user…"
         
+        // save the user list to userDefaults
+//        defaults.set(currentUserList, forKey: defaultsUserListKey)
+        
         return false
     }
     
@@ -184,6 +202,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func newUserTextFieldEditingDidEnd(_ sender: UITextField)
     {
         print("newUserTextField: editingDidEnd with text: \(sender.text)")
+        
+        // save the user list again, just to be safe
+//        defaults.set(currentUserList, forKey: defaultsUserListKey)
     }
 }
 
