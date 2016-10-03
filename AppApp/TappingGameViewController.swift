@@ -14,6 +14,10 @@ class TappingGameViewController: UIViewController
     
     @IBOutlet weak var timerStartButton: UIButton!
     
+    @IBOutlet weak var tapCounterDisplay: UILabel!
+    
+    @IBOutlet var gameTapGestureRecognizer: UITapGestureRecognizer!
+    
     let gameLength: Int = 10
     
     let gameStartText = "Ready!"
@@ -25,6 +29,8 @@ class TappingGameViewController: UIViewController
     var timeCounter: Int = 0
     
     var timerRunning: Bool = false
+    
+    var numberOfTaps: Int = 0
     
     override func viewDidLoad()
     {
@@ -64,17 +70,22 @@ class TappingGameViewController: UIViewController
             
             timerRunning = true
             
+            numberOfTaps = 0
+            
+            updateTapCounter(taps: numberOfTaps)
+            
+            // TODO: find a way to "gray out" the button when it's disabled
             timerStartButton.isEnabled = false
             
             timeCounter = gameLength
             
             timeCounterLabel.text = String(timeCounter)
             
-            gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TappingGameViewController.updateTappingGameCounter), userInfo: nil, repeats: true)
+            gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TappingGameViewController.updateTimeCounter), userInfo: nil, repeats: true)
         }
     }
     
-    public func updateTappingGameCounter()
+    public func updateTimeCounter()
     {
         if timeCounter > 0
         {
@@ -94,6 +105,23 @@ class TappingGameViewController: UIViewController
             timerStartButton.isEnabled = true
             
             timeCounterLabel.text = gameEndText
+        }
+    }
+    
+    public func updateTapCounter(taps: Int)
+    {
+        tapCounterDisplay.text = "Taps: " + String(taps)
+    }
+    
+    @IBAction func tapHappened(_ sender: UITapGestureRecognizer)
+    {
+        //print("Tap happened in TappingGameViewController")
+        
+        if timerRunning
+        {
+            numberOfTaps += 1
+            
+            updateTapCounter(taps: numberOfTaps)
         }
     }
 

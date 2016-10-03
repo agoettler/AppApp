@@ -27,14 +27,7 @@ class UserDetailViewController: UIViewController {
         
         if let thisUser = selectedUser
         {
-            userNameDetail.text = thisUser.getUserName()
-            
-            calculatorValueDetail.text = String(thisUser.getLastCalculatorValue())
-            
-            highScoreDetail.text = String(thisUser.getHighestScore())
-            
-            // TODO: date successfully appears, but format is terrible
-            lastActivityDetail.text = thisUser.getLastActiveDate().description
+            updateAllUserDetails(user: thisUser)
         }
         
         else
@@ -56,9 +49,37 @@ class UserDetailViewController: UIViewController {
         self.currentUserList?.activateUserAt(index: self.selectedUserIndex!)
         
         // update the date in the user detail view
-        lastActivityDetail.text! = self.selectedUser!.getLastActiveDate().description
+        updateLastActivityDetail(user: selectedUser!)
     }
     
+    public func updateAllUserDetails(user: AppAppUser)
+    {
+        updateUserNameDetail(user: user)
+        updateCalculatorValueDetail(user: user)
+        updateHighestScoreDetail(user: user)
+        updateLastActivityDetail(user: user)
+    }
+    
+    public func updateUserNameDetail(user: AppAppUser)
+    {
+        userNameDetail.text = user.getUserName()
+    }
+    
+    public func updateCalculatorValueDetail(user: AppAppUser)
+    {
+        calculatorValueDetail.text = "Last calculator value: " + String(user.getLastCalculatorValue())
+    }
+    
+    public func updateHighestScoreDetail(user: AppAppUser)
+    {
+        highScoreDetail.text = "Highest score: " + String(user.getHighestScore())
+    }
+    
+    public func updateLastActivityDetail(user: AppAppUser)
+    {
+        // TODO: date appears, but formatting is terrible
+        lastActivityDetail.text = "Last activated: " + user.getLastActiveDate().description
+    }
 
     /*
     // MARK: - Navigation

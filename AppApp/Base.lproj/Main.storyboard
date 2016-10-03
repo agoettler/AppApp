@@ -133,6 +133,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="BIP-lx-DAY" secondAttribute="trailing" id="4ew-pU-PKW"/>
                             <constraint firstItem="jTN-8h-YiA" firstAttribute="top" secondItem="BoM-Xp-u55" secondAttribute="bottom" constant="30" id="ASG-8B-3S3"/>
@@ -143,16 +144,26 @@
                             <constraint firstItem="BIP-lx-DAY" firstAttribute="top" secondItem="jTN-8h-YiA" secondAttribute="bottom" constant="30" id="hcJ-s0-IzV"/>
                             <constraint firstItem="jTN-8h-YiA" firstAttribute="centerY" secondItem="0dJ-uH-qua" secondAttribute="centerY" id="z4i-eS-GpR"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="MRf-eH-Rm3" appends="YES" id="hht-88-MqG"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Atm-JS-iqN"/>
                     <connections>
+                        <outlet property="gameTapGestureRecognizer" destination="MRf-eH-Rm3" id="u7L-Mk-ZsO"/>
+                        <outlet property="tapCounterDisplay" destination="jTN-8h-YiA" id="q5D-46-jdy"/>
                         <outlet property="timeCounterLabel" destination="BoM-Xp-u55" id="3eS-h5-AN4"/>
                         <outlet property="timerStartButton" destination="BIP-lx-DAY" id="jef-37-jbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94m-4f-HXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="MRf-eH-Rm3">
+                    <connections>
+                        <action selector="tapHappened:" destination="zF9-RM-j4j" id="CU6-fM-sfd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="-582.45877061469275"/>
+            <point key="canvasLocation" x="-914" y="-609"/>
         </scene>
         <!--User Detail View Controller-->
         <scene sceneID="rEy-eh-3f8">
@@ -636,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnB-rI-4mS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="831.63418290854577"/>
+            <point key="canvasLocation" x="-914" y="865"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nbq-KE-dl0">
