@@ -31,6 +31,8 @@ class TappingGameViewController: UIViewController
     var timerRunning: Bool = false
     
     var numberOfTaps: Int = 0
+
+    var currentUserList: AppAppUserList?
     
     override func viewDidLoad()
     {
@@ -52,6 +54,22 @@ class TappingGameViewController: UIViewController
         if !timerRunning
         {
             timeCounterLabel.text = gameStartText
+            
+            updateTapCounter(taps: 0)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        print("TappingGame viewWillAppear")
+        
+        super.viewWillAppear(animated)
+        
+        if !timerRunning
+        {
+            timeCounterLabel.text = gameStartText
+            
+            updateTapCounter(taps: 0)
         }
     }
 
@@ -87,24 +105,31 @@ class TappingGameViewController: UIViewController
     
     public func updateTimeCounter()
     {
-        if timeCounter > 0
+        // this is a labeled block
+        countDown: if timeCounter > 0
         {
             timeCounter -= 1
             
             timeCounterLabel.text = String(timeCounter)
         }
         
+        // apparently cant't label an else statement
+        // the else statement executes when the the counter reaches 0
         else
         {
             print("Timer finished")
             
             timerRunning = false
             
+            // stop the timer
             gameTimer.invalidate()
             
+            // reactivate the start button
             timerStartButton.isEnabled = true
             
             timeCounterLabel.text = gameEndText
+            
+            storeCurrentScore()
         }
     }
     
@@ -122,6 +147,28 @@ class TappingGameViewController: UIViewController
             numberOfTaps += 1
             
             updateTapCounter(taps: numberOfTaps)
+        }
+    }
+    
+    public func storeCurrentScore()
+    {
+        if let thisUserList = self.currentUserList
+        {
+            if let currentActiveUser = thisUserList.getCurrentActiveUser()
+            {
+                currentActiveUser.setHighestScore(score: numberOfTaps)
+            }
+                
+            else
+            {
+                // if there is no active user, game still runs, but no score is saved, and a message is printed to the console
+                print("Could not save game score, no active user")
+            }
+        }
+        
+        else
+        {
+            print("No user list available to the TappingGameViewController")
         }
     }
 

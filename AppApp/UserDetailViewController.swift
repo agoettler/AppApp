@@ -27,9 +27,27 @@ class UserDetailViewController: UIViewController {
         
         if let thisUser = selectedUser
         {
+            print("UserDetailViewController viewDidLoad with user: \(thisUser.getUserName())")
             updateAllUserDetails(user: thisUser)
         }
         
+        else
+        {
+            print("Unwrapped nil when attempting to load selectedUser")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        // reload the user details if switching from a different tab
+        if let thisUser = selectedUser
+        {
+            print("UserDetailViewController viewWillAppear with user: \(thisUser.getUserName())")
+            updateAllUserDetails(user: thisUser)
+        }
+            
         else
         {
             print("Unwrapped nil when attempting to load selectedUser")

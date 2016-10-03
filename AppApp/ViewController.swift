@@ -15,13 +15,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var currentlyEditingNewUserTextField: Bool = false
     
-    var sampleUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
+    var currentUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        print("View did load")
+        print("ViewController viewDidLoad")
+        
+        // Pass the other view controllers a reference to the user list - essentially the "model" in this app
+        // FIXME: this code will break if the order of the tab items is changed
+        let otherViewControllers = self.tabBarController?.viewControllers
+        
+        let gameController = otherViewControllers![0] as! TappingGameViewController
+        
+        gameController.currentUserList = self.currentUserList
+        
+        let calculatorController = otherViewControllers![2] as! CalculatorViewController
+        
+        calculatorController.currentUserList = self.currentUserList
     }
 
     override func didReceiveMemoryWarning()
@@ -34,9 +47,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         super.viewDidAppear(animated)
         
+        print("ViewController did appear")
+        
+        self.userTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        print("ViewController viewWillAppear")
+        
+        // reload the table view each time tabs are switched
         self.userTableView.reloadData()
         
-        print("User list view did appear")
     }
 
     // required functions for UITableViewDataSource protocol
@@ -48,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return sampleUserList.userCount()
+        return currentUserList.userCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -57,10 +81,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "userCell")! as UITableViewCell
         
-        cell.textLabel!.text = sampleUserList.getUserAt(index: cellNumber)!.getUserName()
+        cell.textLabel!.text = currentUserList.getUserAt(index: cellNumber)!.getUserName()
         
         // the subtitle will indicate which user is currently active
-        if sampleUserList.getUserAt(index: cellNumber)!.getUserActivity()
+        if currentUserList.getUserAt(index: cellNumber)!.getUserActivity()
         {
             cell.detailTextLabel!.text = "Active"
         }
@@ -91,17 +115,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // override the prepare function to populate the user detail view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        print("View controller preparing for segue to \(segue.identifier)")
+        
         if segue.identifier == "UserDetailSegue"
         {
             if let destinationViewController: UserDetailViewController = segue.destination as? UserDetailViewController
             {
                 let userIndex: Int = (userTableView.indexPathForSelectedRow! as NSIndexPath).row
                 
-                destinationViewController.currentUserList = self.sampleUserList
+                destinationViewController.currentUserList = self.currentUserList
                 
                 destinationViewController.selectedUserIndex = userIndex
                 
-                destinationViewController.selectedUser = sampleUserList.getUserAt(index: userIndex)
+                destinationViewController.selectedUser = currentUserList.getUserAt(index: userIndex)
                 
                 print("Preparing to display detail for user: \(destinationViewController.selectedUser!.getUserName())")
             }
@@ -120,7 +146,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // create a new user with the entered text as the username
         let newUserName = textField.text!
         
-        self.sampleUserList.addNewUser(userName: newUserName)
+        self.currentUserList.addNewUser(userName: newUserName)
         
         // force the table to reload and display the new user
         self.userTableView.reloadData()

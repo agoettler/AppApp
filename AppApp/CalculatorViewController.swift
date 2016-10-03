@@ -11,16 +11,23 @@ import UIKit
 class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var calculatorDisplay: UILabel!
+    
     @IBOutlet weak var entriesDisplay: UILabel!
     
+    var currentUserList: AppAppUserList?
     
     var userIsEnteringNumber: Bool = false
+    
     var decimalEntered: Bool = false
+    
     var isDisplayingResult: Bool = false
+    
     var calculatorModel: RPNCalculatorModel = RPNCalculatorModel()
+    
     let operationsDictionary = ["+" : CalculatorOperation.addition, "-" : CalculatorOperation.subtraction, "×" : CalculatorOperation.multiplication, "÷" : CalculatorOperation.division, "√" : CalculatorOperation.squareRoot, "π" : CalculatorOperation.pi, "sin" : CalculatorOperation.sine, "cos" : CalculatorOperation.cosine, "±" : CalculatorOperation.negation]
     
     let calculatorDisplayReturnedNil = "calculatorDisplay returned nil"
+    
     let entriesDisplayReturnedNil = "entriesDisplay returned nil"
     
     @IBAction func digitPressed(_ sender: AnyObject) {
@@ -48,6 +55,9 @@ class CalculatorViewController: UIViewController {
             } else {
                 print(calculatorDisplayReturnedNil)
             }
+            
+            // store the displayed value after updating display
+            storeDisplayedValue()
             
         } else {
             
@@ -109,7 +119,8 @@ class CalculatorViewController: UIViewController {
                     resolveOperation()
                 }
                 
-                
+                // store the displayed value after updating display or performing an operation
+                storeDisplayedValue()
                 
             } else {
                 
@@ -181,7 +192,9 @@ class CalculatorViewController: UIViewController {
                     calculatorDisplay.text = newDisplayText
                     
                 }
-                
+            
+                // store the displayed value after updating display
+                storeDisplayedValue()
             }
         }
         
@@ -201,6 +214,9 @@ class CalculatorViewController: UIViewController {
         userIsEnteringNumber = false
         
         isDisplayingResult = false
+        
+        // store the displayed value after updating display
+        storeDisplayedValue()
     }
     
     @IBAction func decimalPressed(_ sender: AnyObject) {
@@ -229,6 +245,9 @@ class CalculatorViewController: UIViewController {
                 
             }
             
+            // store the displayed value after updating display
+            storeDisplayedValue()
+            
         } else {
             
             print(calculatorDisplayReturnedNil)
@@ -254,6 +273,27 @@ class CalculatorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    public func storeDisplayedValue()
+    {
+        if let thisUserList = self.currentUserList
+        {
+            if let currentActiveUser = thisUserList.getCurrentActiveUser()
+            {
+                currentActiveUser.setLastCalculatorValue(value: Float(calculatorDisplay!.text!)!)
+            }
+                
+                // if there is no current active user, calculator will still work but no value will be saved
+            else
+            {
+                print("Couldn't save calculator value: no active user")
+            }
+        }
+        
+        else
+        {
+            print("No user list available to the CalculatorViewController")
+        }
+    }
 
     /*
     // MARK: - Navigation

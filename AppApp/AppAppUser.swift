@@ -65,7 +65,10 @@ class AppAppUser
     
     public func setHighestScore(score: Int)
     {
-        self.highestScore = score
+        if score > self.highestScore
+        {
+            self.highestScore = score
+        }
     }
     
     public func getLastActiveDate() -> Date
