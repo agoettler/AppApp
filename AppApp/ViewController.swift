@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.userTableView.reloadData()
         
-        print("View did appear")
+        print("User list view did appear")
     }
 
     // required functions for UITableViewDataSource protocol

@@ -14,9 +14,13 @@ class TappingGameViewController: UIViewController
     
     @IBOutlet weak var timerStartButton: UIButton!
     
-    var gameTimer: Timer = Timer()
-    
     let gameLength: Int = 10
+    
+    let gameStartText = "Ready!"
+    
+    let gameEndText = "Done!"
+    
+    var gameTimer: Timer = Timer()
     
     var timeCounter: Int = 0
     
@@ -30,7 +34,19 @@ class TappingGameViewController: UIViewController
         
         print("TappingGame ViewDidLoad")
         
-        timeCounterLabel.text = "Ready!"
+        timeCounterLabel.text = gameStartText
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        print("TappingGame viewDidAppear")
+        
+        if !timerRunning
+        {
+            timeCounterLabel.text = gameStartText
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -48,7 +64,7 @@ class TappingGameViewController: UIViewController
             
             timerRunning = true
             
-            //timerStartButton.isEnabled = false
+            timerStartButton.isEnabled = false
             
             timeCounter = gameLength
             
@@ -75,9 +91,9 @@ class TappingGameViewController: UIViewController
             
             gameTimer.invalidate()
             
-            //timerStartButton.isEnabled = true
+            timerStartButton.isEnabled = true
             
-            timeCounterLabel.text = "Done!"
+            timeCounterLabel.text = gameEndText
         }
     }
 

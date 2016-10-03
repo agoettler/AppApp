@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qbY-BB-gMn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VJy-pe-3Za">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -88,9 +88,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="904.79999999999995" y="134.48275862068968"/>
+            <point key="canvasLocation" x="964" y="139.880059970015"/>
         </scene>
-        <!--Tapping Game View Controller-->
+        <!--Item-->
         <scene sceneID="Nyz-Vd-b6a">
             <objects>
                 <viewController id="zF9-RM-j4j" customClass="TappingGameViewController" customModule="AppApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -115,6 +115,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.98943418264389038" green="0.95794391632080078" blue="0.86405980587005615" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="zF9-RM-j4j" eventType="touchUpInside" id="0s8-BF-6di"/>
@@ -141,14 +144,15 @@
                             <constraint firstItem="jTN-8h-YiA" firstAttribute="centerY" secondItem="0dJ-uH-qua" secondAttribute="centerY" id="z4i-eS-GpR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Atm-JS-iqN"/>
                     <connections>
-                        <outlet property="tappingGameCounterLabel" destination="BoM-Xp-u55" id="ZCR-7Z-2wE"/>
+                        <outlet property="timeCounterLabel" destination="BoM-Xp-u55" id="3eS-h5-AN4"/>
                         <outlet property="timerStartButton" destination="BIP-lx-DAY" id="jef-37-jbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94m-4f-HXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="904.79999999999995" y="856.82158920539734"/>
+            <point key="canvasLocation" x="24.800000000000001" y="-582.45877061469275"/>
         </scene>
         <!--User Detail View Controller-->
         <scene sceneID="rEy-eh-3f8">
@@ -237,12 +241,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JAy-lM-14R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1736.8" y="134.48275862068968"/>
+            <point key="canvasLocation" x="1796" y="139.880059970015"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="isA-tV-KJm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbY-BB-gMn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="KRb-jx-5tu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rzc-eE-qgO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -255,9 +260,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0LA-ee-f89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34.399999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="24.800000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Calculator View Controller-->
+        <!--Item-->
         <scene sceneID="6zw-JU-XnX">
             <objects>
                 <viewController id="8e9-nY-AVR" customClass="CalculatorViewController" customModule="AppApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -623,6 +628,7 @@
                             <constraint firstItem="ToQ-g3-bmE" firstAttribute="leading" secondItem="XPS-be-kZA" secondAttribute="trailing" constant="8" id="z3X-uP-MX2"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="u5G-5h-jsk"/>
                     <connections>
                         <outlet property="calculatorDisplay" destination="p6k-zk-De1" id="ZWA-Yq-XAy"/>
                         <outlet property="entriesDisplay" destination="WPW-Dz-YZ4" id="26b-gp-zph"/>
@@ -630,7 +636,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnB-rI-4mS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="857"/>
+            <point key="canvasLocation" x="24.800000000000001" y="831.63418290854577"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nbq-KE-dl0">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VJy-pe-3Za" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9JS-6q-ffQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zF9-RM-j4j" kind="relationship" relationship="viewControllers" id="vOC-S4-7Q4"/>
+                        <segue destination="qbY-BB-gMn" kind="relationship" relationship="viewControllers" id="LSl-wt-dVp"/>
+                        <segue destination="8e9-nY-AVR" kind="relationship" relationship="viewControllers" id="GNM-Xl-m0M"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0E-Hj-F3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-914.39999999999998" y="124.58770614692655"/>
         </scene>
     </scenes>
 </document>
