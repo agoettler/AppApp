@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="964" y="139.880059970015"/>
         </scene>
-        <!--Item-->
+        <!--Game-->
         <scene sceneID="Nyz-Vd-b6a">
             <objects>
                 <viewController id="zF9-RM-j4j" customClass="TappingGameViewController" customModule="AppApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,7 +148,7 @@
                             <outletCollection property="gestureRecognizers" destination="MRf-eH-Rm3" appends="YES" id="hht-88-MqG"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Atm-JS-iqN"/>
+                    <tabBarItem key="tabBarItem" title="Game" id="Atm-JS-iqN"/>
                     <connections>
                         <outlet property="gameTapGestureRecognizer" destination="MRf-eH-Rm3" id="u7L-Mk-ZsO"/>
                         <outlet property="tapCounterDisplay" destination="jTN-8h-YiA" id="q5D-46-jdy"/>
@@ -254,11 +254,11 @@
             </objects>
             <point key="canvasLocation" x="1796" y="139.880059970015"/>
         </scene>
-        <!--Item-->
+        <!--Users-->
         <scene sceneID="isA-tV-KJm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbY-BB-gMn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KRb-jx-5tu"/>
+                    <tabBarItem key="tabBarItem" title="Users" id="KRb-jx-5tu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rzc-eE-qgO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Item-->
+        <!--Calculator-->
         <scene sceneID="6zw-JU-XnX">
             <objects>
                 <viewController id="8e9-nY-AVR" customClass="CalculatorViewController" customModule="AppApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -519,7 +519,6 @@
                                 <color key="backgroundColor" red="0.98943418260000005" green="0.95794391629999998" blue="0.86405980589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9N3-yt-MlM"/>
-                                    <constraint firstAttribute="width" constant="343" id="t7P-ve-ovu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.01592440531" green="0.12652091679999999" blue="0.1596960127" alpha="1" colorSpace="calibratedRGB"/>
@@ -639,7 +638,7 @@
                             <constraint firstItem="ToQ-g3-bmE" firstAttribute="leading" secondItem="XPS-be-kZA" secondAttribute="trailing" constant="8" id="z3X-uP-MX2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="u5G-5h-jsk"/>
+                    <tabBarItem key="tabBarItem" title="Calculator" id="u5G-5h-jsk"/>
                     <connections>
                         <outlet property="calculatorDisplay" destination="p6k-zk-De1" id="ZWA-Yq-XAy"/>
                         <outlet property="entriesDisplay" destination="WPW-Dz-YZ4" id="26b-gp-zph"/>
@@ -655,13 +654,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VJy-pe-3Za" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="9JS-6q-ffQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="zF9-RM-j4j" kind="relationship" relationship="viewControllers" id="vOC-S4-7Q4"/>
                         <segue destination="qbY-BB-gMn" kind="relationship" relationship="viewControllers" id="LSl-wt-dVp"/>
                         <segue destination="8e9-nY-AVR" kind="relationship" relationship="viewControllers" id="GNM-Xl-m0M"/>
+                        <segue destination="zF9-RM-j4j" kind="relationship" relationship="viewControllers" id="vOC-S4-7Q4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0E-Hj-F3R" userLabel="First Responder" sceneMemberID="firstResponder"/>

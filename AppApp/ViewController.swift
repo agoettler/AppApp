@@ -17,11 +17,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var currentUserList: AppAppUserList = AppAppUserList(userNames: ["Bill", "Bob", "Jebediah"])
     
-//    let defaults = UserDefaults.standard
-//    
-//    let defaultsUserListKey = "storedUserList"
+    let defaults = UserDefaults.standard
     
-    //defaults.set(currentUserList, forKey: defaultsUserListKey)
+    let defaultsUserListKey = "storedUserList"
 
     override func viewDidLoad()
     {
@@ -33,21 +31,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // retrieve any stored user list in user defaults
         // use the following code to store to the list
         //defaults.set(currentUserList, forKey: defaultsUserListKey)
-//        if let storedUserList = defaults.object(forKey: defaultsUserListKey)
-//        {
-//            // I think this should cast the default's "any" type as the type I need
-//            currentUserList = storedUserList as! AppAppUserList
-//        }
+        if let storedUserList = defaults.object(forKey: defaultsUserListKey)
+        {
+            // I think this should cast the default's "any" type as the type I need
+            currentUserList = storedUserList as! AppAppUserList
+        }
         
         // Pass the other view controllers a reference to the user list - essentially the "model" in this app
         // FIXME: this code will break if the order of the tab items is changed
         let otherViewControllers = self.tabBarController?.viewControllers
         
-        let gameController = otherViewControllers![0] as! TappingGameViewController
+        let gameController = otherViewControllers![2] as! TappingGameViewController
         
         gameController.currentUserList = self.currentUserList
         
-        let calculatorController = otherViewControllers![2] as! CalculatorViewController
+        let calculatorController = otherViewControllers![1] as! CalculatorViewController
         
         calculatorController.currentUserList = self.currentUserList
     }
@@ -175,7 +173,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         textField.text = "Add new user…"
         
         // save the user list to userDefaults
-//        defaults.set(currentUserList, forKey: defaultsUserListKey)
+        //defaults.set(currentUserList, forKey: defaultsUserListKey)
         
         return false
     }
